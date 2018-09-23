@@ -7,7 +7,10 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import StorePicker from './components/StorePicker';
+import App from './components/App';
+
+import "./css/style.css";
 
 // 2 Parameters ([JSX - ~HMTL] , [Mounting Point - Actual Dom Element])
-render(<StorePicker/>, document.querySelector('#main'));
+render(<App/>, document.querySelector('#main'));
 
