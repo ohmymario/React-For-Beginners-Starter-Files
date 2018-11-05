@@ -16,16 +16,36 @@ class App extends React.Component {
   // Triggers when user visits page
   componentDidMount() {
     const { params } = this.props.match;
+    // first reinstate our localStorage
+    const localStorageRef = localStorage.getItem(params.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
-      state: 'fishes'
+      state: "fishes"
     });
+  }
+  
+  // Occurs when page data updated
+  componentDidUpdate() {
+    console.log(this.state.order);
+    console.log(this.props.match.params.storeId);
+    
+    // (key, value) for localStorage
+    localStorage.setItem(
+      this.props.match.params.storeId,
+      JSON.stringify(this.state.order)
+    )
+    console.log('It updated !!!');
   }
 
   // Triggers when user leaves page
   componentWillUnmount() {
     base.removeBinding(this.ref)
   }
+
 
   // Add fish to state
   addFish = (fish) => {
