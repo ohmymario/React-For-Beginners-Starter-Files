@@ -63,6 +63,16 @@ class App extends React.Component {
     })
   };
 
+  // Update fish from Fish input forms
+  updateFish = (key, updatedFish) => {
+    // 1. Create a copy of the state 
+    const fishes = { ...this.state.fishes };
+    // 2. Update the copied state with form inputted changes
+    fishes[key] = updatedFish;
+    // 3. set copy to the live state
+    this.setState({ fishes });
+  }
+
   // Populate 9 Fishes into State
   loadSampleFishes = () => {
     this.setState({fishes: sampleFishes});
@@ -98,7 +108,12 @@ class App extends React.Component {
           </ul>
         </div>
         <Order fishes={this.state.fishes} order={this.state.order}/>
-        <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes}/>
+        <Inventory 
+          addFish={this.addFish} 
+          updateFish={this.updateFish} 
+          loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
+        />
       </div>
     )
   }
