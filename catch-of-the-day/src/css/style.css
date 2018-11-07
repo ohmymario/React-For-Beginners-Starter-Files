@@ -1,8 +1,8 @@
 .order-enter {
-  -webkit-transform: translateX(-120%);
-          transform: translateX(-120%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
   max-height: 0;
   padding: 0 !important;
 }
@@ -18,37 +18,10 @@
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
-.order-exit.order-exit-active {
+.order-exit-active {
   -webkit-transform: translateX(120%);
           transform: translateX(120%);
   padding: 0;
-}
-.count-enter {
-  background: #f00;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-.count-enter.count-enter-active {
-  background: #ff0;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-.count-exit {
-  background: #000;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-.count-exit.count-exit-active {
-  background: #008000;
-  -webkit-transform: translateY(-100%) scale(3);
-          transform: translateY(-100%) scale(3);
 }
 @font-face {
   font-family: "haymakerregular";
